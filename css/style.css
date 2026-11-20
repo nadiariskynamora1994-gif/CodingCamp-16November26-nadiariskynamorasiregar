@@ -1,0 +1,24 @@
+* { box-sizing: border-box; font-family: Arial, sans-serif; }
+body { background: #6a6ee0; background: linear-gradient(135deg, #7a7ee8, #5b4fc4); margin: 0; padding: 20px; min-height: 100vh; }
+body.dark { background: #1a1a2e; }
+body.dark .card { background: #16213e; color: white; }
+body.dark .top-card { background: #16213e; color: white; }
+.container { max-width: 900px; margin: auto; }
+.top-card { background: white; padding: 25px; border-radius: 10px; text-align: center; margin-bottom: 15px; }
+#clock { font-size: 36px; color: #6a7bd6; }
+#date { color: #666; font-size: 13px; margin: 5px 0 10px; }
+#greeting { font-size: 22px; margin: 0; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.card { background: white; padding: 20px; border-radius: 10px; }
+.card h2 { font-size: 16px; text-align: center; margin-top: 0; }
+#timerDisplay { font-size: 48px; color: #6a7bd6; text-align: center; margin: 10px 0; }
+.timer-btns { text-align: center; }
+input, select { padding: 9px; border: 1px solid #ccc; border-radius: 5px; width: 100%; margin: 3px 0; }
+button { background: #5b7de0; color: white; border: none; padding: 8px 14px; border-radius: 5px; cursor: pointer; }
+button.delete { background: #e74c3c; padding: 4px 8px; font-size: 11px; }
+li { list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #eee; }
+li.done span.task-text { text-decoration: line-through; opacity: 0.5; }
+.link-item { display: inline-block; background: #5b7de0; color: white; padding: 8px 18px; border-radius: 5px; text-decoration: none; margin: 5px 3px; font-size: 13px; }
+#progressBarWrap { background: #eee; height: 10px; border-radius: 20px; overflow: hidden; margin: 10px 0; }
+#progressBar { background: #5b7de0; height: 100%; width: 0%; }
+@media(max-width:700px){ .grid{grid-template-columns:1fr} }
