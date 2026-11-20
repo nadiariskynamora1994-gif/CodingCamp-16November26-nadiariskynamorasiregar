@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nadia Travel - Medan</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+  body{background:#f7f7f7;color:#333}
+  nav{background:#0f766e;color:white;display:flex;justify-content:space-between;align-items:center;padding:15px 30px;position:sticky;top:0}
+  nav a{color:white;text-decoration:none;margin-left:20px;font-weight:bold}
+  .hero{height:350px;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;text-align:center;background-size:cover;background-position:center}
+  .hero h1{font-size:42px;text-shadow:2px 2px 5px #000}
+  .hero p{font-size:18px;margin-top:10px}
+  section{padding:50px 30px;max-width:1000px;margin:auto;background:white;margin-top:20px;border-radius:10px}
+  h2{color:#0f766e;margin-bottom:15px}
+  .cards{display:flex;gap:15px;flex-wrap:wrap}
+  .card{flex:1;min-width:200px;border:1px solid #ddd;padding:20px;border-radius:10px;text-align:center}
+  .card img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+  input,textarea,select{width:100%;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:6px}
+  button{background:#0f766e;color:white;border:none;padding:12px 20px;border-radius:6px;cursor:pointer;font-weight:bold;width:100%}
+  #result{background:#ecfdf5;padding:15px;border-radius:8px;margin-top:15px;display:none}
+  footer{text-align:center;padding:20px;color:#888}
+  @media(max-width:600px){nav{flex-direction:column}.hero h1{font-size:28px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div><b>🌴 NADIA TRAVEL</b></div>
+  <div><a href="#home">Home</a><a href="#profile">Our Profile</a><a href="#portfolio">Portfolio</a><a href="#message">Message Us</a></div>
+</nav>
+
+<div class="hero" id="home">
+  <h1>Hi <span id="nama-user">Teman</span>, Selamat Datang!</h1>
+  <p>Jelajahi Keindahan Sumatera Utara Bersama Kami</p>
+  <p id="slide-text" style="margin-top:15px;background:rgba(0,0,0,0.5);padding:8px 15px;border-radius:20px">📍 Danau Toba - Surga di Sumatera Utara</p>
+</div>
+
+<section id="profile">
+  <h2>Our Profile</h2>
+  <p><b>Nadia Travel</b> adalah perusahaan travel lokal dari Medan yang berdiri sejak 2024. Kami menyediakan paket wisata Danau Toba, Berastagi, dan Pulau Samosir dengan harga terjangkau dan pelayanan ramah.</p><br>
+  <p><b>Visi:</b> Menjadi travel lokal terbaik di Sumatera Utara.<br>
+  <b>Misi:</b> Memberikan pengalaman liburan yang aman, nyaman, dan berkesan.</p>
+  <p style="margin-top:10px">Dibuat oleh: <b>Nadia Risky Namora Siregar</b> - Medan, Sumatera Utara</p>
+</section>
+
+<section id="portfolio">
+  <h2>Portfolio / Paket Wisata</h2>
+  <div class="cards">
+    <div class="card"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500"><h3>Danau Toba 2D1N</h3><p>Rp 850.000 / orang<br>Termasuk hotel, makan, & kapal ke Samosir</p></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500"><h3>Berastagi 1D</h3><p>Rp 350.000 / orang<br>Termasuk Gundaling & Pasar Buah</p></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=500"><h3>Samosir Tour 3D2N</h3><p>Rp 1.250.000 / orang<br>Full trip + pemandu lokal</p></div>
+  </div>
+</section>
+
+<section id="message">
+  <h2>Message Us</h2>
+  <p>Isi form di bawah untuk tanya paket wisata:</p>
+  <form id="form-pesan">
+    <label>Nama:</label><input type="text" id="nama" placeholder="Nama lengkap kamu">
+    <label>Email:</label><input type="email" id="email" placeholder="contoh@email.com">
+    <label>Paket yang diminati:</label>
+    <select id="paket"><option value="">-- Pilih Paket --</option><option>Danau Toba 2D1N</option><option>Berastagi 1D</option><option>Samosir Tour 3D2N</option></select>
+    <label>Pesan:</label><textarea id="pesan" rows="4" placeholder="Tulis pertanyaan kamu..."></textarea>
+    <button type="submit">Kirim Pesan</button>
+  </form>
+  <div id="result"></div>
+</section>
+
+<footer>© 2026 Nadia Travel - Mini Project RevoU Coding Camp</footer>
+
+<script>
+  // 1. Ganti nama sambutan
+  let nama = prompt("Halo! Siapa nama kamu?");
+  if(nama && nama.trim() !== ""){ document.getElementById("nama-user").innerText = nama; }
+
+  // 2. Banner Autoslide text
+  const slides = ["📍 Danau Toba - Surga di Sumatera Utara","📍 Berastagi - Udara Sejuk & Pemandangan Indah","📍 Pulau Samosir - Budaya Batak yang Kaya"];
+  let i = 0;
+  setInterval(()=>{
+    i = (i+1) % slides.length;
+    document.getElementById("slide-text").innerText = slides[i];
+  }, 3000);
+
+  // 3. Validasi Form + Tampilkan Hasil
+  document.getElementById("form-pesan").addEventListener("submit", function(e){
+    e.preventDefault();
+    let n = document.getElementById("nama").value.trim();
+    let em = document.getElementById("email").value.trim();
+    let pk = document.getElementById("paket").value;
+    let ps = document.getElementById("pesan").value.trim();
+    if(n === "" || em === "" || pk === "" || ps === ""){ alert("Mohon isi semua form ya!"); return; }
+    if(!em.includes("@")){ alert("Email harus ada @ ya!"); return; }
+    let hasil = document.getElementById("result");
+    hasil.style.display = "block";
+    hasil.innerHTML = `<b>Terima kasih, ${n}!</b><br>Email: ${em}<br>Paket: ${pk}<br>Pesan: ${ps}<br><br>Pesan kamu berhasil terkirim. Kami akan hubungi dalam 1x24 jam.`;
+  });
+</script>
+</body>
+</html>
